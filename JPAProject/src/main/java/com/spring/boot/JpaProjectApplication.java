@@ -1,5 +1,8 @@
 package com.spring.boot;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -16,12 +19,35 @@ public class JpaProjectApplication {
 		
 		UserRepository userRepo = context.getBean(UserRepository.class);
 		
-		User user = new User();
-		user.setName("Raghav");
-		user.setCity("Jaipur");
-		userRepo.save(user);
+		User user1 = new User("Archit", "Mumbai");
+		User user2 = new User("Ben", "HighGarden");
+		User user3 = new User("Catherine", "New York");
 		
-		System.out.println(userRepo.findById(1));
+		//Create single user
+		User user = userRepo.save(user1);
+		System.out.println(user);
+		
+		//create all users together
+		List<User> userList = List.of(user1, user2, user3);
+		Iterable<User> result = userRepo.saveAll(userList);
+		result.forEach(u->{System.out.println(u);});
+		
+		//update a user
+		//get a user by id
+		Optional<User> optional = userRepo.findById(2);
+		
+		User toBeUpdated = optional.get();
+		toBeUpdated.setCity("Jamshedpur");
+		User updatedUser = userRepo.save(toBeUpdated);
+		System.out.println(updatedUser);
+		
+		//get all users
+		Iterable<User> allUsers = userRepo.findAll();
+		allUsers.forEach(usr->{System.out.println(usr);});
+		
+		//delete a user
+		userRepo.delete(user2);
+		
 	}
 
 }

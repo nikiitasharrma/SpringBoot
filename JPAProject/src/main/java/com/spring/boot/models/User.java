@@ -19,6 +19,19 @@ public class User {
 	
 	private String city;
 
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public User(String name, String city) {
+		super();
+		this.name = name;
+		this.city = city;
+	}
+
+
+
 	public int getId() {
 		return id;
 	}
