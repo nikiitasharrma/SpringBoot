@@ -19,8 +19,8 @@ public class JpaProjectApplication {
 		
 		UserRepository userRepo = context.getBean(UserRepository.class);
 		
-		User user1 = new User("Archit", "Mumbai");
-		User user2 = new User("Ben", "HighGarden");
+		User user1 = new User("Archit", "HighGarden");
+		User user2 = new User("Ben", "Bombay");
 		User user3 = new User("Catherine", "New York");
 		
 		//Create single user
@@ -47,6 +47,51 @@ public class JpaProjectApplication {
 		
 		//delete a user
 		userRepo.delete(user2);
+		
+		/**
+		 * custom finder methods
+		 */
+		//findByName
+		List<User> nameResult = userRepo.findByName("Archit");
+		nameResult.forEach(name->System.out.println(name));
+		
+		//data support keywords
+		//findByNameAndCity
+		List<User> andResult = userRepo.findByNameAndCity("Archit", "Mumbai");
+		andResult.forEach(andUser->System.out.println(andUser));
+		
+		//findByNameStartingWith
+		List<User> nameStartingC = userRepo.findByNameStartingWith("C");
+		nameStartingC.forEach(c->System.out.println(c));
+		
+		//findByCityEndingWith
+		List<User> cityEndingY = userRepo.findByCityEndingWith("y");
+		cityEndingY.forEach(y->System.out.println(y));
+		
+		//findByNameContaining
+		List<User> containingResult = userRepo.findByNameContaining("en");
+		containingResult.forEach(en->System.out.println(en));
+		
+		//findByCityLike
+		List<User> cityPattern = userRepo.findByCityLike("%gh%");
+		cityPattern.forEach(p->System.out.println(p));
+		
+		//findByIdLessThan
+		List<User> idLessThan = userRepo.findByIdLessThan(100);
+		idLessThan.forEach(less->System.out.println(less));
+		
+		//findByIdGreaterThanEqual
+		List<User> idGreaterThan = userRepo.findByIdGreaterThanEqual(100);
+		idGreaterThan.forEach(greater->System.out.println(greater));
+		
+		//findByIdIn
+		List<Integer> ids = List.of(102, 204, 304);
+		List<User> idIn = userRepo.findByIdIn(ids);
+		idIn.forEach(id->System.out.println(id));
+		
+		//findByCityOrderByName
+		List<User> cityNameResult = userRepo.findByCityOrderByName("HighGarden");
+		cityNameResult.forEach(h->System.out.println(h));
 		
 	}
 
