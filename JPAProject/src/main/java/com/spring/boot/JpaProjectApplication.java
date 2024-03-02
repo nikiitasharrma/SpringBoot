@@ -93,6 +93,17 @@ public class JpaProjectApplication {
 		List<User> cityNameResult = userRepo.findByCityOrderByName("HighGarden");
 		cityNameResult.forEach(h->System.out.println(h));
 		
+		/*
+		 * JPQL methods
+		 */
+		userRepo.getAllUsers().forEach(all->System.out.println(all));
+		userRepo.getNameUser("Archit").forEach(ar->System.out.println(ar));
+		
+		/**
+		 * Native SQL query methods 
+		 */
+		userRepo.getUsersNative().forEach(nat->System.out.println(nat));
+		
 	}
 
 }
