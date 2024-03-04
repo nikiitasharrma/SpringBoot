@@ -37,4 +37,15 @@ public class BookService {
 		return "The book with id " + id + " has been deleted";
 	}
 	
+	public String updateBook(Book book, int bookId) {
+		books.stream().map(e->{
+				if(e.getId() == bookId) {
+					e.setName(book.getName());
+					e.setAuthor(book.getAuthor());
+				}
+				return e;
+		      }).collect(Collectors.toList());
+		return "The book with id " + bookId + " has been updated!";
+	}
+	
 }
