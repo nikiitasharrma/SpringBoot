@@ -15,7 +15,7 @@ public class BookService {
 	static {
 		books.add(new Book(1, "Theory of Relativity", "Albert Einstein"));
 		books.add(new Book(2, "Pride & Prejudice", "Jane Austen"));
-		books.add(new Book(3, "Diarty of a wimpy kid", "Jeff Kinney"));
+		books.add(new Book(3, "Diary of a wimpy kid", "Jeff Kinney"));
 	}
 	
 	public List<Book> getAllBooks(){
@@ -25,4 +25,10 @@ public class BookService {
 	public Book getBook(int id) {
 		return books.stream().filter(book->book.getId() == id).findFirst().get();
 	}
+	
+	public Book addBook(Book book) {
+		books.add(book);
+		return book;
+	}
+	
 }
