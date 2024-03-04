@@ -2,6 +2,7 @@ package com.spring.boot.data;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 
@@ -29,6 +30,11 @@ public class BookService {
 	public Book addBook(Book book) {
 		books.add(book);
 		return book;
+	}
+	
+	public String deleteBook(int id) {
+		books = books.stream().filter(b->b.getId()!=id).collect(Collectors.toList());
+		return "The book with id " + id + " has been deleted";
 	}
 	
 }
