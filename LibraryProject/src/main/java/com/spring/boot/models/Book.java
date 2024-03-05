@@ -1,9 +1,25 @@
 package com.spring.boot.models;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="Library")
 public class Book {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="Book_id")
 	private int id;
+	
+	@Column(name="title")
 	private String name;
+	
+	@Column(name="Author")
 	private String author;
 	
 	public Book() {
