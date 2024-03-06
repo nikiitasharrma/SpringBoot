@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Conditional Statements and Elvis operator</title>
+</head>
+<body>
+	<!-- Elvis Operator -->
+	<div>
+		<h3>
+			Status is <span th:style="${isActive} ? 'color:green' : 'color:red'"
+				th:text="${isActive} ? 'ACTIVE' : 'INACTIVE'"></span>
+		</h3>
+	</div>
+
+	<!-- If-Unless statements -->
+	<div>
+		<h3 th:if="${gender} == 'F'">Female</h3>
+		<h3 th:unless="${gender} == 'F'">Male</h3>
+	</div>
+
+	<!-- Switch-Case -->
+	<div th:switch="${#lists.size(listOfNames)}">
+		<span th:case="'0'">List contains zero elements</span> 
+		<span th:case="'1'">List contains a single element</span> 
+		<span th:case="*">List contains more than one elements</span>
+	</div>
+</body>
+</html>

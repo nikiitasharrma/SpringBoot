@@ -6,10 +6,10 @@
 </head>
 <body>
 	<h1 th:text="${#strings.toUpperCase(name)}"></h1>
-	<h3 th:text="${curr_date}" ></h3>
+	<h3 th:text="${curr_date}"></h3>
 	<div th:with="a=77, b=88, n=${name}">
-	<p th:text="'My name is ' + ${n}"></p>
-	<p th:text="'The sum of ' + ${a} + ' and ' + ${b} + ' is ' + ${a+b}"></p>
+		<p th:text="'My name is ' + ${n}"></p>
+		<p th:text="'The sum of ' + ${a} + ' and ' + ${b} + ' is ' + ${a+b}"></p>
 	</div>
 </body>
 </html>
