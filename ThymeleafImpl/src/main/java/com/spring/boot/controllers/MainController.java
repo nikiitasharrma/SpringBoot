@@ -1,5 +1,6 @@
 package com.spring.boot.controllers;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -45,7 +46,11 @@ public class MainController {
 	}
 	
 	@RequestMapping("/fragments")
-	public String showFooter() {
-		return "host";
+	public ModelAndView showFooter() {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("title", "Project title");
+		mv.addObject("subtitle", LocalDateTime.now().toString());
+		mv.setViewName("host");
+		return mv;
 	}
 }

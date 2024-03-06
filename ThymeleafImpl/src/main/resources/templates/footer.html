@@ -5,8 +5,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<footer id="fragmentTag" th:fragment="footer1">
+	<footer id="fragmentTag" th:fragment="footer1(title,subtitile)">
 		<div class="container">
+			<h3 th:text="${title}"></h3>
+			<h3 th:text="${subtitle}"></h3>
 			<p>Spreading knowledge and enlighting others</p>
 		</div>
 	</footer>
