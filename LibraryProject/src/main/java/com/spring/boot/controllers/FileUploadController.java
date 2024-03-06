@@ -25,7 +25,7 @@ public class FileUploadController {
 			}
 			if (!file.getContentType().equals("image/png")) {
 				return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-						.body("Only jpeg content type is allowed");
+						.body("Only png content type is allowed");
 			}
 
 			Boolean flag = uploadHelper.uploadFile(file);
