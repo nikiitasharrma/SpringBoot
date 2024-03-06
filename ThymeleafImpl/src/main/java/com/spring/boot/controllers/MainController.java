@@ -43,4 +43,9 @@ public class MainController {
 		mv.setViewName("conditions");
 		return mv;
 	}
+	
+	@RequestMapping("/fragments")
+	public String showFooter() {
+		return "host";
+	}
 }
