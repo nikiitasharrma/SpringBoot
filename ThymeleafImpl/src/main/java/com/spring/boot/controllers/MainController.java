@@ -5,14 +5,15 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+
+@RestController
 public class MainController {
 	
-	@RequestMapping("/about")
+	@GetMapping("/about")
 	public ModelAndView aboutHandler() {
 		
 		ModelAndView mv = new ModelAndView();	
@@ -23,7 +24,7 @@ public class MainController {
 		return mv;
 	}
 	
-	@RequestMapping("/iterate")
+	@GetMapping("/iterate")
 	public ModelAndView iterationHandler() {
 		ModelAndView mv = new ModelAndView();
 		List<String> list = List.of("Ankit", "Bhuvan", "Chirag", "Dhruv", "Ethan");
@@ -32,7 +33,7 @@ public class MainController {
 		return mv;
 	}
 	
-	@RequestMapping("/conditions")
+	@GetMapping("/conditions")
 	public ModelAndView conditionsHandler() {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("isActive", false);
@@ -45,12 +46,20 @@ public class MainController {
 		return mv;
 	}
 	
-	@RequestMapping("/fragments")
+	@GetMapping("/fragments")
 	public ModelAndView showFooter() {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("title", "Project title");
 		mv.addObject("subtitle", LocalDateTime.now().toString());
 		mv.setViewName("host");
+		return mv;
+	}
+	
+	@GetMapping("/inheritance")
+	public ModelAndView showPage() {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("name","Nikita");
+		mv.setViewName("contact");
 		return mv;
 	}
 }

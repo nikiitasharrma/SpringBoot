@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="baseLayout(content)">
+<head>
+	<meta charset="UTF-8" />
+	<title>Base Tag</title>
+	<link rel="stylesheet" th:href="@{/style.css}" />
+</head>
+<body>
+	<header>NARC org</header>
+	<div th:replace="${content}"></div>
+	<footer>Contact at careers@narc.org</footer>
+</body>
+</html>
