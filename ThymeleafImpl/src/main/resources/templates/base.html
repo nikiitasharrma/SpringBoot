@@ -3,11 +3,13 @@
 <head>
 	<meta charset="UTF-8" />
 	<title>Base Tag</title>
-	<link rel="stylesheet" th:href="@{/style.css}" />
+	<link rel="stylesheet" th:href="@{css/style.css}" />
 </head>
 <body>
 	<header>NARC org</header>
+	<img src="" alt="" th:src="@{img/img.png}" />
 	<div th:replace="${content}"></div>
 	<footer>Contact at careers@narc.org</footer>
+	<script th:src="@{js/alert.js}"></script>
 </body>
 </html>
